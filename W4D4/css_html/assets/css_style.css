@@ -1,0 +1,33 @@
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+h1 {
+    font: 38px;
+}
+
+.ingredients-list {
+    list-style: square inside;
+}
+
+.recipe {
+    list-style: circle inside;
+}
+
+header>img {
+    width: 100px;
+}
+
+ul li a {
+    text-decoration: none;
+    text-decoration-color: inherit;
+}
+
+html {
+    background-color: whitesmoke;
+}

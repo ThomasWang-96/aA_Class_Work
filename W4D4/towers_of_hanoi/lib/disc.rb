@@ -1,0 +1,3 @@
+class Disc
+
+end
