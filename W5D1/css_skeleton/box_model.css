@@ -1,0 +1,44 @@
+div{
+}
+
+#first-div {
+  background-color: #39cccc;
+  height: 200px;
+  width: 200px;
+  padding: 50px 50px 50px 50px;
+  border: 5px solid black;
+  box-sizing: border-box;
+  display: flex;
+}
+
+#second-div {
+  background-color: #ff4136;
+  /* box-sizing: border-box; */
+  height: 200px;
+  width: 200px;
+  padding: 50px 50px 50px 50px;
+  border: 5px solid black;
+  box-sizing: border-box;
+  display: flex;
+}
+
+p {
+  height: 10px;
+  background-color: #7fdbff;
+  display: flex;
+}
+
+.image-1-container {
+  width: 100%;
+  background-color: gray;
+}
+
+.image-2-container > img {
+  display: inline-block;
+  width: auto;
+  height: 600px;
+  background: pink;
+}
+
+
+
