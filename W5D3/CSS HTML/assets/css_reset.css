@@ -1,0 +1,17 @@
+html, body, title, aside, section, h2, p, ol, li, form, h1 {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font: inherit;
+        color: inherit;
+        list-style: none;
+        background-color: transparent;
+}
+
+body {
+    line-height: 1.5;
+}
+
+img {
+    width: 100%;
+}
