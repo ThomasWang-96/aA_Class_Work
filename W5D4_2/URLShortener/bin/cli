@@ -1,0 +1,54 @@
+#!/usr/bin/env ruby
+
+require 'launchy'
+
+
+class CLI
+
+    def user_login
+        puts 'Please enter your email:'
+        input = gets.chomp
+        @user = User.find_by(email: input)
+        if @user.nil?
+            @user = User.create(email: input)     
+        end
+    end
+
+    def run
+        user_login
+        loop do get_command
+            break if get_command == false
+        end
+    end
+
+    def get_command
+        puts 'What you want to do?'
+        puts '0.Create shortened URL'
+        puts '1.Visit shortened URL'
+        option = gets.chomp
+        
+        case option
+        when '0'
+            puts 'Type in your long URL'
+            short = ShortenedUrl.short_url_create(@user, gets.chomp)
+            puts "Short url is: #{short.short_url}"
+            return true
+
+        when '1'
+            puts 'Type in the shortened URL'
+            record = ShortenedUrl.find_by(short_url: gets.chomp)
+            puts "Launching #{record.long_url}"
+            puts 'Goodbye!'
+            Launchy.open(record.long_url)
+            Visit.record_visit!(@user, record)
+            return false
+        
+        when 'quit'
+            return false
+            
+        end
+    end
+
+end
+
+CLI.new.run

@@ -1,0 +1,17 @@
+# == Schema Information
+#
+# Table name: tag_topics
+#
+#  id         :bigint           not null, primary key
+#  topic      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  topic: MyString
+  link: MyString
+
+two:
+  topic: MyString
+  link: MyString
