@@ -8,13 +8,7 @@ class Array
     end
 
     def two_sum
-        res = []
-        (0...self.length).each do |i|
-            (0...self.length).each do |j|
-                if j > i
-                    
-            end
-        end
+
     end
 
     def my_transpose
@@ -24,5 +18,17 @@ class Array
 end
 
 def stock_picker(arr)
-    arr
+    max = 0
+    max_arr = []
+    (0...arr.length).each do |i|
+        (0...arr.length).each do |j|
+             if j > i && arr[j] - arr[i] > max
+                max = arr[j] - arr[i]
+                max_arr = [i, j]
+             end
+        end
+    end
+      max_arr  
+    
 end
+

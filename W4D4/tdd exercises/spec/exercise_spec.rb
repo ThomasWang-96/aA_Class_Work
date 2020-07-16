@@ -44,17 +44,17 @@ describe "#stock_picker(arr)" do
     
 
     it "should take in a array of stock prices as an argument" do
-        arr = [30, 35, 42, 23, 18, 50]
+        arr = [30, 35, 42, 23, 18, 50, 20, 70, 12]
         stock_picker(arr) 
     end
 
     it "should return the most profitable pair" do
-        arr = [30, 35, 42, 23, 18, 50]
-        expect(stock_picker(arr)).to eq ([4, 5])
+        arr = [30, 35, 42, 23, 18, 50, 20, 70, 12]
+        expect(stock_picker(arr)).to eq ([4, 7])
     end
 
     it "buying day should be earlier than selling day" do 
-        arr = [30, 35, 42, 23, 18, 50]
+        arr = [30, 35, 42, 23, 18, 50, 20, 70, 12]
         expect(stock_picker(arr)[0] < stock_picker(arr)[1]).to be true
     end
 

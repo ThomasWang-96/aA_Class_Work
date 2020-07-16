@@ -1,0 +1,69 @@
+<% if action == :edit && cat.persisted? %>
+    <% action_url = cat_url(cat) %>
+<% else %>
+    <% action_url = cats_url %>
+<% end %>
+
+
+<form action="<%= action_url %>" method="post">
+    <% if action == :edit %>
+        <input type="hidden" name='_method' value="PATCH">
+    <% end %> 
+    <div>
+        <label for="name">Cat's Name: </label> 
+        <input type="text" name="cat[name]" id="name" value="<%= cat.name %>">
+    </div>
+
+    <br>
+    
+    <div>
+    <label for="gender">Gender: </label>
+        <input type="radio" name="cat[gender]" id="f" value="F" <%= cat.gender == "F" ? "checked" : "" %> >
+        <label for="f">F</label>
+        
+        <input type="radio" name="cat[gender]" id="M" value="M" <%= cat.gender == "M" ? "checked" : "" %> >
+        <label for="m">M</label>
+    </div>
+
+    <br>
+
+    <div>
+        <label for="color">Color: </label>
+        <select name="cat[color]" id="color">å
+            <option disabled <%= cat.color ? "" : "selected" %>> -- please select a color -- </option>
+            <option value="white" <%= cat.color == "white" ? "selected" : "" %> >White</option>
+            <option value="black" <%= cat.color == 'black' ? "selected" : '' %> >Black</option> 
+            <option value="gray" <%= cat.color == 'gray' ? "selected" : '' %> >Gray</option>
+            <option value="blue" <%= cat.color == 'blue' ? "selected" : '' %> >Blue</option>
+            <option value="yellow" <%= cat.color == 'yellow' ? "selected" : '' %> >Yellow</option>
+        </select>
+    </div>
+
+    <br>
+
+    <div>
+        <label for="birth_date">Birth Date: </label>
+        <input id="birth_date" type="date" name="cat[birth_date]" value = "<%= cat.birth_date  %>">
+    </div>
+
+    <br>
+
+    <div>
+    <br>
+    <br>
+    <label for="description">Description: </label>
+    <textarea name="cat[description]">
+        <%= cat.description %>
+    </textarea>
+    </div>
+    
+    <div>
+    <br>
+    <input type="submit" value="<%= action == :edit ? 'update cat' : 'add cat'%>">
+    </div>
+
+</form>
+
+
+
+
