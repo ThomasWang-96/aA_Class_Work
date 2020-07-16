@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: cats
+#
+#  id          :bigint           not null, primary key
+#  birth_date  :date             not null
+#  color       :string           not null
+#  description :text             not null
+#  gender      :string(1)        not null
+#  name        :string           not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+one:
+  birth_date: 2020-07-16
+  color: MyString
+  name: MyString
+  gender: MyString
+  description: MyText
+
+two:
+  birth_date: 2020-07-16
+  color: MyString
+  name: MyString
+  gender: MyString
+  description: MyText
