@@ -8,18 +8,24 @@ class SessionsController < ApplicationController
         user = User.find_by_credentials(username, password)
 
         if user.nil?
-            flash.now[:alert] = "Username or password is invaild"
+            flash.now[:alert] = "Username or password is invaild!"
             render :new
         else
             user.reset_session_token!
-            session = user.session_token
+            session[:session_token] = user.session_token
             redirect_to user_url(user)
         end
 
     end
 
     def destroy
-        redirect_to root_url, notice: "Logged Out!"
+        
+        if current_user
+           current_user.reset_session_token!
+        end
+
+        session[:session_token] = nil
+        # redirect_to root_url, notice: "Logged Out!"
     end
 
     private
@@ -28,6 +34,7 @@ class SessionsController < ApplicationController
     end
     
 end
+
 
 
 # rails g controller sessions new create login welcome 

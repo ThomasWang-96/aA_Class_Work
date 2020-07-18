@@ -9,6 +9,41 @@
   </head>
 
   <body>
+  <header>
+   <% if !current_user.nil? %>
+      <li><%= current_user.user_name %></li>
+        <form action="<%= session_url %>" method="POST">     
+            <input type="hidden"
+                   name="authenticity_token"
+                   value="<%= form_authenticity_token %>" >
+            
+            <input type="hidden" name="_method" value= "delete">
+            <input type="submit" value="Logout" />
+        </form>
+
+    <% else %>
+    
+       <form action="<%= session_url %>" method="POST">       
+          <input type="hidden"
+                    name="authenticity_token"
+                    value="<%= form_authenticity_token %>">
+          
+          <input type="submit" value="Login" />
+        </form>
+
+  <% end %>
+
+
+
+
+  </header>
+
     <%= yield %>
   </body>
 </html>
+
+
+
+
+
+
