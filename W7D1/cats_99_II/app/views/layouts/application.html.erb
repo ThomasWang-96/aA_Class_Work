@@ -10,29 +10,25 @@
 
   <body>
   <header>
-   <% if !current_user.nil? %>
-      <li><%= current_user.user_name %></li>
-        <form action="<%= session_url %>" method="POST">     
+  
+    <% if !current_user.nil? %>
+      <form action="<%= session_url %>" method="POST">
+          <%= current_user.user_name %>
             <input type="hidden"
-                   name="authenticity_token"
-                   value="<%= form_authenticity_token %>" >
-            
+                    name="authenticity_token"
+                    value="<%= form_authenticity_token %>" >
+              
             <input type="hidden" name="_method" value= "delete">
             <input type="submit" value="Logout" />
-        </form>
-
+      </form>
     <% else %>
-    
-       <form action="<%= session_url %>" method="POST">       
-          <input type="hidden"
-                    name="authenticity_token"
-                    value="<%= form_authenticity_token %>">
-          
-          <input type="submit" value="Login" />
-        </form>
+      
+      <form action="<%= new_session_url %>" method="get">
+        <input type="submit" value="login" />
+      </form>
+    <% end %>
 
-  <% end %>
-
+  
 
 
 

@@ -13,25 +13,23 @@ class SessionsController < ApplicationController
         else
             user.reset_session_token!
             session[:session_token] = user.session_token
-            redirect_to user_url(user)
+            redirect_to cats_url
         end
 
     end
 
     def destroy
-        
-        if current_user
-           current_user.reset_session_token!
-        end
-
-        session[:session_token] = nil
-        # redirect_to root_url, notice: "Logged Out!"
+        logout!
+        redirect_to new_session_url
     end
 
     private
     def user_params
         params.require(:user).permit(:user_name, :password)
     end
+
+
+
     
 end
 

@@ -1,1 +1,7 @@
-<%= render 'form', user:@user %>
+<%= form_tag(users_url, method: 'post') do %>
+    <%= label_tag('user[user_name]', 'username:') %>
+    <%= text_field_tag('user[user_name]') %>
+    <%= label_tag('user[password]','password:') %>
+    <%= text_field_tag('user[password]') %>
+    <%= submit_tag('sign up') %>
+<% end %>
