@@ -1,11 +1,12 @@
 class ApplicationController < ActionController::Base
     before_action :require_current_user, except: [:create, :new]
+    
+    helper_method :current_user
+    helper_method :logged_in?
 
     def log_in_user!(user) 
-        @current_user = user
-        new_token = current_user.reset_session_token!
-        session[:session_token] = new_token
-        redirect_to user_url(current_user)
+        user.reset_session_token!
+        session[:session_token] = user.session_token
     end
 
     def current_user
@@ -21,3 +22,5 @@ class ApplicationController < ActionController::Base
         redirect_to new_session_url if current_user.nil?        
     end
 end
+
+

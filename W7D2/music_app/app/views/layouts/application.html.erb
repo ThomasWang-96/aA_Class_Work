@@ -11,20 +11,55 @@
 
   <body>
   <header>
-      <% current_user: @current_user %>
-      <form action="<%= session_url %>" method='POST'>
-          <% if logged_in? %>
-              <p><%= current_user.email %></p>
+    <div id = "logo">
+      <h1 id="musicapp">Music App</h1>
+    </div>
+
+    <div class = "head">
+      <% if !current_user.nil? %>
+      
+          <form action="<%= session_url %>" method='POST'>
+             
+              
+              <input type="hidden" 
+                     name="authenticity_token" 
+                     value = "<%= form_authenticity_token %>">
+          
+              <%= current_user.email %>
               <input type="hidden" name="_method" value= "delete">
               <input type="submit" value="sign out">
-          <% else %>
-          <% end %>
-      </form>
+
+          </form>
+      <% else %>
+              <input type="hidden" 
+                     name="authenticity_token" 
+                     value = "<%= form_authenticity_token %>">  
+                                
+                <form action="<%= new_session_url %>" method="get">
+                  <input type="submit" value="Log In">
+                </form>
+
+                <form action="<%= new_user_url %>" method="get">
+                  <input type="submit" value="Sign up">
+                </form>
+
+      <% end %>
+
+  </div>
 
   </header>
 
 
-
+  <div class= "main">
     <%= yield %>
+  </div>
+ 
+<footer>
+  <div>
+  <br>
+  <a href="<%= bands_url %>"><button>Show All Bands</button></a>
+  
+  </div>
+</footer>
   </body>
 </html>
