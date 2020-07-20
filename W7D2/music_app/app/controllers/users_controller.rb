@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find_by(id:params[:id])
-        render :show
+        redirect_to bands_url
     end
 
 

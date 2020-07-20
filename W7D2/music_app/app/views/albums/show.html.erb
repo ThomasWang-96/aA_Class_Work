@@ -1,0 +1,26 @@
+<%  album= @album %>
+
+<ul>
+    <li>
+        <% band_id = album.band_id %>
+        name: <%= Band.find(band_id).name %>
+    </li>
+    
+    <li>title: <%= album.title %></li>
+    <li>year: <%= album.year %></li>
+
+    <li>
+        <% if album.live %>
+            type: live
+        <% else %>
+            type: studio
+        <% end %>
+    </li>
+    
+</ul>
+
+<form action="<%= edit_album_url %>" method = "get">
+    <input type="submit" value="Update Album">
+</form>
+
+

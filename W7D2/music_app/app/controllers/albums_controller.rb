@@ -1,14 +1,13 @@
 class AlbumsController < ApplicationController
 
-    def index 
-        @albums = Album.where(band_id: params[:band_id])
-        render :index
-    end
-
     def new
-        
+        @album = Album.new
+        render :new
     end
 
+    def find_album
+        Album.find_by(id: params[:id])
+    end
 
     def create
         @album = Album.new(album_params)
@@ -17,22 +16,24 @@ class AlbumsController < ApplicationController
             redirect_to album_url(@album)
         else
             flash.now[:errors] = 'Can not save new album, try again'
-            render :new
+            redirect_to new_band_album_url
         end
     end
     
     def edit
+        @album = find_album
+        render :edit
     end
 
     def show
-        @album = Album.find_by(id: params[:id])
+        @album = find_album
         render :show
     end
 
     def update
-        @album = Album.find_by(id:params[:id])
+        @album = find_album
         
-        if @album.update(album_params)
+        if @album.update_attributes(album_params)
             redirect_to album_url(@album)
         else
             flash.now[:errors] = 'fail to edit'
@@ -45,7 +46,7 @@ class AlbumsController < ApplicationController
         @album = Album.find_by(id:params[:id])
         @album.destroy
         redirect_to :index
-        end
+        
     end
 
     private
