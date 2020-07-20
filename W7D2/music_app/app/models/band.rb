@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table nam: bands
+# Table name: bands
 #
 #  id         :bigint           not null, primary key
 #  name       :string           not null
@@ -9,4 +9,5 @@
 #
 class Band < ApplicationRecord
     validates :name, presence: true
+    has_many :albums
 end
