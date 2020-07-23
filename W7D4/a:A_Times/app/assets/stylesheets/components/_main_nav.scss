@@ -15,7 +15,7 @@
     float: left;
     margin:10px;
     font-family: Helvetica;
-    font-size: 10px;
+    font-size: 13px;
     font-weight: bolder;
     text-transform: uppercase;
 }
@@ -27,7 +27,7 @@
 }
 
 .right-nav > ul > li:last-of-type {
-    
+    position: relative;
 }
 
 .left-nav > ul > li:hover,
@@ -42,4 +42,8 @@
 
 .right-nav i {
     font-size: 13pt;
+}
+
+#gear-dropdown-btn i:hover {
+    color: black;
 }

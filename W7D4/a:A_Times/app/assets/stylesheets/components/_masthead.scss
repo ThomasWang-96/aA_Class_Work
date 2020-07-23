@@ -5,6 +5,8 @@
 	border-bottom: 2px solid black;
 	position: relative;
 	align-items: center;
+	margin-top: 20px;
+	border-top: 1px solid $light-gray;
 }
 
 .language-nav {
@@ -37,6 +39,7 @@
 
 
 .logo {
+	display: flex;
 	max-width: 400px;
 	margin-top: 10px;
 }
@@ -51,6 +54,10 @@
 
 .masthead-links li {
 	margin-left: 10px;
+	border-right: 1px solid $light-gray; 
+}
+.masthead-links li:last-of-type {
+	border-right: none;
 }
 
 .masthead-links button {
