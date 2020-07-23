@@ -4,6 +4,7 @@
 	align-items: center;
 	border-bottom: 2px solid black;
 	position: relative;
+	align-items: center;
 }
 
 .language-nav {
@@ -25,9 +26,15 @@
 	color: $dark-gray;
 }
 
+.language-nav li:first-child {
+	font-weight: bolder;
+}
+
 .language-nav ul {
 	display: flex;
 }
+
+
 
 .logo {
 	max-width: 400px;
@@ -44,7 +51,6 @@
 
 .masthead-links li {
 	margin-left: 10px;
-	border-right: 1px solid $light-gray;
 }
 
 .masthead-links button {

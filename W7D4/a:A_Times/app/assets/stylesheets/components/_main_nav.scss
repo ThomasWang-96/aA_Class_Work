@@ -1,35 +1,38 @@
 .main-nav {
-    
+    padding: 20px;
+    display:flex;
+    justify-content: space-between;
 }
 
 .left-nav > ul,
 .right-nav > ul {
-
-
+    display:flex;
+    align-items: center;
 }
 
 .left-nav > ul > li {
     display: block;
     float: left;
     margin:10px;
-    font-family: Arial, Helvetica, sans-serif;
-
+    font-family: Helvetica;
+    font-size: 10px;
+    font-weight: bolder;
+    text-transform: uppercase;
 }
 
 .right-nav > ul > li {
     display: block;
     float: right;
-    margin:10px;
-    font-family: Arial, Helvetica, sans-serif;
+    margin:5px;
 }
 
 .right-nav > ul > li:last-of-type {
-
+    
 }
 
 .left-nav > ul > li:hover,
 .right-nav > ul > li:last-of-type:hover {
-
+    color:$lightest-gray;
 }
 
 .left-nav span {
@@ -38,5 +41,5 @@
 
 
 .right-nav i {
-
+    font-size: 13pt;
 }
