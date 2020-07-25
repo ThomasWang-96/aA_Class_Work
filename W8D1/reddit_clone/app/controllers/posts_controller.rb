@@ -3,7 +3,7 @@ class PostsController < ApplicationController
     before_action :require_author!, only:[:edit, :update]
 
     def new
-        @post = Post.new(post_params)
+        @post = Post.new
         render :new
     end
 
@@ -18,10 +18,12 @@ class PostsController < ApplicationController
 
     def show
         @post = Post.find_by(id: params[:id])
-        redirect_to post_url(@post)
+        render :show
     end
 
     def edit
+        @post = Post.find_by(id: params[:id])
+        render :edit
     end
 
     def update
@@ -30,7 +32,7 @@ class PostsController < ApplicationController
         if @post.update(post_params)
            redirect_to post_url(@post)
         else
-            render :edit,
+            render :edit
         end
     end
 
@@ -43,6 +45,6 @@ class PostsController < ApplicationController
     private
     
     def post_params
-        params.require(:post).permit(:title, :url, :content, :sub_id, :author_id)
+        params.require(:post).permit(:title, :url, :content, :author_id, sub_ids:[])
     end
 end

@@ -1,0 +1,22 @@
+<% sub= @sub %>
+
+<h1><%= sub.title %></h1>
+<h4>Description:</h4>
+<p><%= sub.description %></p>
+
+<p><%= link_to "Make New Post", new_post_url %></p>
+
+
+<p><% if current_user == sub.moderator %>
+    <%= link_to "Edit", edit_sub_url(sub) %>
+<% end %></p>
+
+<% sub.posts.each do |post| %>
+  <li><%= link_to "#{post.title}", post_url(post) %> </li>
+<% end %>
+
+
+
+
+
+

@@ -1,0 +1,18 @@
+<% post = @post %>
+<h1><%= post.title %> by <%= post.author.username %> </h1>
+
+<p><strong>Content: </strong></p>
+<%= post.content %>
+
+<p> <strong> Subs:</strong></p>
+
+<% post.subs.each do |sub| %>
+  <li><%= sub.title %></li>
+<% end %>
+
+<h2>Comments</h2>
+<% post.comments.each do |comment| %>
+     <li><%= link_to "#{comment.content[0..5]} ...", comment_url(comment) %></li>
+<% end %>
+
+<%= link_to "Comment on this post!", new_post_comments_url(post) %>

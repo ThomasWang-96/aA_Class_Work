@@ -1,0 +1,14 @@
+<% comment=@comment %>
+<p>
+ <%= comment.content %>
+</p>
+
+<p>reply to this comment</p>
+<form action="<%= comment_url %>" method='POST'>
+    <input type="hidden" name="authenticity_token" value= "<%= form_authenticity_token %>">
+    <h4><label for='reply'>reply:</label></h4>
+    <input type='textarea' name='comment[content]' id='reply'>
+
+    <input type='submit' value='Submit'>
+
+</form>
