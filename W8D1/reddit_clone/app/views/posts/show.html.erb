@@ -11,7 +11,8 @@
 <% end %>
 
 <h2>Comments</h2>
-<% post.comments.each do |comment| %>
+<% comments = post.comments.where(parent_comment_id: nil) %>
+<% comments.each do |comment| %>
      <li><%= link_to "#{comment.content[0..5]} ...", comment_url(comment) %></li>
 <% end %>
 
