@@ -1,0 +1,24 @@
+/* PHASE 4: Footer */
+footer {
+    display: flex;
+    color: gray;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    background: #fff;
+    width: 900px;
+    border: 1px solid #ccc;
+    border-top: 0;
+}
+
+.rights {
+    padding: 20px;
+    width: 500px;
+}
+
+
+.links {
+    padding:20px;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
