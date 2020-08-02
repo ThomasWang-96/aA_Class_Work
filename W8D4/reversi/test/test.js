@@ -8,7 +8,6 @@ describe("Piece", function () {
     lightPiece;
 
   beforeEach(function () {
-    debugger;
     darkPiece = new Piece("black");
     lightPiece = new Piece("white");
   });
