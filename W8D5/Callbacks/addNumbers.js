@@ -12,16 +12,25 @@ function addNumbers(sum, numsLeft, completionCallback) {
             const num = parseInt(answer);
             sum += num;
             console.log(sum);
-
+            addNumbers(sum, numsLeft - 1, completionCallback)
         })
-        numsLeft -= 1
-        addNumbers(sum, numsLeft, completionCallback)
+        // addNumbers(sum, numsLeft - 1, completionCallback)
     } 
-    else if (numsLeft === 0) {
+    else {
         completionCallback(sum);
-        // reader.close()
+        reader.close()
     }
-    
+    console.log('last line of code')
+
 }
 
-addNumbers(0, 3, sum => console.log(`Total Sum: ${sum}`));
+addNumbers(0, 3, sum => {console.log(`Total Sum: ${sum}`)});
+
+
+
+
+
+
+
+
+
