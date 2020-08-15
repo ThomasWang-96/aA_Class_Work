@@ -1,0 +1,9 @@
+.follow-toggle {
+    font-size: 15px;
+    width: 100px;
+    height: 40px;
+    color: white;
+    background-color: rgb(73, 194, 241);
+    border: 1px solid rgb(73, 194, 241);
+    border-radius: 20px;
+}
