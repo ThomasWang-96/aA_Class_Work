@@ -1,103 +1,112 @@
 class DOMNodeCollection {
-    constructor(nodesArr){
-        this.nodesArr = nodesArr
-    }
+  constructor(nodesArr) {
+    this.nodesArr = nodesArr;
+  }
 
-    html(str) {
-        for(let i = 0; i < this.nodesArr.length; i ++) {
-            let node = this.nodesArr[i];
-            if(str) {
-                node.innerHTML  = str; 
-            } else {
-                return node.innerHTML
-            }
-        }
+  html(str) {
+    for (let i = 0; i < this.nodesArr.length; i++) {
+      let node = this.nodesArr[i];
+      if (str) {
+        node.innerHTML = str;
+      } else {
+        return node.innerHTML;
+      }
     }
+  }
 
-    empty() {
-        this.nodesArr.forEach(node => {
-            node.innerHTML = ""
+  empty() {
+    this.nodesArr.forEach((node) => {
+      node.innerHTML = "";
+    });
+  }
+
+  append(args) {
+    this.nodesArr.forEach((node) => {
+      if (args instanceof DOMNodeCollection) {
+        args.nodesArr.forEach((arg) => {
+          node.append(arg.outerHTML);
         });
+      } else {
+        node.append(args);
+      }
+    });
+  }
+
+  attr(key, val) {
+    for (let i = 0; i < this.nodesArr.length; i++) {
+      let node = this.nodesArr[i];
+      if (val) {
+        node.setAttribute(key, val);
+      } else {
+        return node.getAttribute(key);
+      }
     }
+  }
 
-    append(args){
-        this.nodesArr.forEach((node) => {
-            if (args instanceof DOMNodeCollection)
-            {args.nodesArr.forEach((arg) => {
-                node.append(arg.outerHTML)
-            })}
-            else {
-                node.append(args)
-            }
-        })       
+  addClass(str) {
+    for (let i = 0; i < this.nodesArr.length; i++) {
+      let node = this.nodesArr[i];
+      node.className = str;
     }
+  }
 
-    attr(key, val) {
-        for (let i = 0; i < this.nodesArr.length; i++) {
-            let node = this.nodesArr[i];
-            if(val) {
-                node.setAttribute(key, val);
-            } else {
-                return node.getAttribute(key);
-            }
-        }
+  removeClass() {
+    for (let i = 0; i < this.nodesArr.length; i++) {
+      let node = this.nodesArr[i];
+      node.className = "";
     }
+  }
 
-
-    addClass(str) {
-        for (let i = 0; i < this.nodesArr.length; i++) {
-            let node = this.nodesArr[i];
-            node.className = str;  
-        }
+  children() {
+    const arr = [];
+    let res;
+    for (let i = 0; i < this.nodesArr.length; i++) {
+      let node = this.nodesArr[i];
+      let children = node.children;
+      res = arr.concat(Array.from(children));
     }
+    return new DOMNodeCollection(res);
+  }
 
-    removeClass() {
-        for (let i = 0; i < this.nodesArr.length; i++) {
-            let node = this.nodesArr[i];
-            node.className = "";
-        }
+  parent() {
+    const arr = [];
+    for (let i = 0; i < this.nodesArr.length; i++) {
+      let node = this.nodesArr[i];
+      let parent = node.parentElement;
+      arr.push(parent);
     }
+    return new DOMNodeCollection(arr);
+  }
 
+  find(str) {
+    let res = [];
+    this.nodesArr.forEach((node) => {
+      let selected = node.querySelectorAll(str);
+      let arr = Array.from(selected);
+      res = res.concat(arr);
+    });
 
-    children() {
-        const arr = []; 
-        let res;
-        for (let i = 0; i < this.nodesArr.length; i++) {
-          let node = this.nodesArr[i];
-          let children = node.children;
-          res = arr.concat(Array.from(children))
-        }
-        return new DOMNodeCollection(res);
-    }
+    return new DOMNodeCollection(res);
+  }
 
-    parent() {
-        const arr = [];
-        for (let i = 0; i < this.nodesArr.length; i++) {
-            let node = this.nodesArr[i];
-            let parent = node.parentElement;
-            arr.push(parent)
-        }
-        return new DOMNodeCollection(arr);
-    }
+  remove() {
+    this.nodesArr.forEach((node) => {
+      node.remove();
+    });
+  }
 
-    find(str){
-        let res = [];
-        this.nodesArr.forEach( node => {
-            let selected = node.querySelectorAll(str)
-            let arr = Array.from(selected)
-            res = res.concat(arr)
-        })
-        
-        return new DOMNodeCollection(res);
-    }
+  on(type, listener, options) {
+    this.nodesArr.forEach((node) => {
+    node.setAttribute('eventListener', listener);   
+    node.addEventListener(type, listener, options);
+    });
+  }
 
-
-     
-    remove() {
-        this.nodesArr.forEach((node) => {
-            node.remove();
-        })
-    }
+  off(type, options) {
+    this.nodesArr.forEach((node) => {
+      node.removeEventListener(type, node.getAttribute('eventListener'), options);
+    });
+  }
 }
 
 
