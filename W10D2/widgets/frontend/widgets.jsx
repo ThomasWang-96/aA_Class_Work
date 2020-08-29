@@ -12,8 +12,11 @@ const panels = [
 function Root(){
     return(
         <div>
-            <Clock/>
-            <Tabs panels = {panels} />
+            <div>
+                <Clock />
+            </div>
+            
+            <div><Tabs panels = {panels} /></div>
         </div>
     )
 }

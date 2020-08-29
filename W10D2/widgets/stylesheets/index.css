@@ -7,10 +7,11 @@ body {
 #root {
     padding:15%;
 }
+/* clock */
 .clock {
-    width: 60%;
+    width: 500px;
     font-size: 30px;
-    border: 1px solid black;
+    border: 2px solid black;
 }
 
 .clock p{
@@ -21,10 +22,54 @@ body {
     background-color: orange;
     padding: 15px;
     color: white;
-   
 }
 
+
+/* tabs */
 .tabs {
+    width: 210px;
+    background-color: paleturquoise;
     color: black;
     margin-top: 20px;
+    border-radius: 4px;
+    border: 2px solid black;
+}
+
+
+
+.tab-header {
+    display:flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.tab-header > li {
+    width:70px;
+    padding: 5px;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    text-align: center;    
+    cursor: pointer;
+}
+
+
+.tab-header > li:last-child {
+    border-right: 0px;
+}
+
+.tab-header > li:hover {
+    color: white;
+    background-color: black;
+}
+
+.tab-content {
+    height: 120px;
+    padding-top: 35%;
+    text-align: center;
+}
+
+.active {
+    font-weight: 700;
+    border-bottom: 2px solid paleturquoise;
 }
