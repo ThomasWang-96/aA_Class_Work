@@ -5,7 +5,7 @@ class Headers extends React.Component {
     const selected = this.props.selectedPane;
     const headers = this.props.panels.map((panel, index) => {
       const title = panel.title
-      const klass = index === selected ? 'active' : ' '
+      const klass = index === selected ? 'active' : 'inactive'
       return( 
         <li key={index}
             className={klass}            
@@ -44,7 +44,6 @@ export default class Tabs extends React.Component {
     return (
       <div>
         <h1>Tabs</h1>
-        
         <div className='tabs'>
           <Headers selectedPane={this.state.selectedPanel}
                   //  onTabChosen={this.selectTab}
