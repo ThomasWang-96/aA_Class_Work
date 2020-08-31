@@ -34,7 +34,6 @@ export default class Weather extends React.Component {
     render() {
         let content;
         if (this.state.weather) {
-            console.log(this.state.weather)
             content =   
             <div className='weather'>
                 <li>

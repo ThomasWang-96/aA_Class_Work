@@ -11,13 +11,17 @@ const panels = [
   { title: "three", content: "I am the third" }
 ];
 
+const names = ["Abby", "BuyBuyDa", "BigArmy", "HumanHeartCool", "KingNeedle", "BridgeGod", "WestIdiot", "BigSister"]
+
 function Root(){
     return(
         <div>
-            <div><Clock /></div>
-            <div><Weather /></div>
-            <div><Tabs panels = {panels} /></div>
-            <div><Autocomplete /></div>
+            <Clock />
+            <Weather />
+            <div className='interactive'>   
+                <Tabs panels = {panels} />
+                <Autocomplete names={names} />
+            </div>
         </div>
     )
 }

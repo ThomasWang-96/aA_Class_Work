@@ -2,14 +2,18 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 30px;
     font-weight: bold;
+     display: flex;
+   justify-content: space-around;
 }
-
 
 #root {
     padding:15%;
 }
+
+
 h1 {
     margin-top: 20px;
+    margin-bottom: 10px;
 }
 /* clock */
 .clock {
@@ -106,4 +110,43 @@ h1 {
     padding: 15px;
     justify-content: space-between;
     text-align: center; 
+}
+
+/* autocomplete */
+
+ .autocomplete {
+     width: 200px;
+     height: 250px;
+     background-color: yellow;
+     border: 2px solid black;
+     font-size: 20px;
+     font-weight: 600;
+     padding: 20px;
+     border-radius: 5px;
+     background-image: url(https://hd.unsplash.com/6/blurred_lines.jpeg);
+     background-size: cover;
+     background-position: center;
+ }
+
+ .autocomplete li {
+     padding-top: 5px;
+     cursor: pointer;
+ }
+
+ .autocomplete li:first-child {
+    padding-top: 20px;
+ }
+
+ .autocomplete > input{
+    background-color: white;
+    border: 1px solid black;
+}
+
+.autocomplete > *{
+  margin-left: 30px;
+}
+
+.interactive {
+    display:flex;
+    justify-content:space-between;
 }
